@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session2 - Coding Challenge 1</title>
-
+    <title>Session 3 - Coding Challenge 1</title>
 </head>
 <script>
-    // Coding Challenge
+const calcAverage = (teamScore) => {
+    let teamAverage = 0;
+    for(let i = 0; i < teamScore.length; i++){
+        teamAverage += teamScore[i];
+    }
+    return teamAverage / teamScore.length;
+}
  
-// TEST DATA 1
+//Compare two numbers and console the result of the calculations
+function checkWinner (firstAvg, secondAvg){
+    
+    if( firstAvg >= 2 * secondAvg || secondAvg >= 2 * firstAvg){
+        firstAvg > secondAvg ? console.log(`Dolphins win (${firstAvg} vs. ${secondAvg})`) 
+        : console.log(`Koalas win (${secondAvg} vs. ${firstAvg})`)
+    } else {
+        console.log(`Nobody won! Dolphins: ${firstAvg} vs. Koalas: ${secondAvg}`)
+    }
+}
  
-//Task1
-let mark_weight = 78;
-const mark_height = 1.69;
-let john_weight = 92;
-const john_height = 1.95;
+//Initializating the team's scores
+const dolphinsScores = [44,23,71];
+const koalasScores = [65,54,49];
  
-//task2
-const mark_bmi = (mark_weight / mark_height ** 2); //27.3
-const john_bmi = (john_weight / john_height ** 2); //24.2
-console.log(mark_bmi, john_bmi);
+//Calculating the average and creating variables with the result
+const avgDolhins = calcAverage(dolphinsScores);
+const avgKoalas = calcAverage(koalasScores);
  
-//task3
-const mark_higher_bmi = (mark_bmi > john_bmi);
-console.log(mark_bmi > john_bmi); // Boolean is (True)
- 
+//Checking who's the winner
+checkWinner(avgDolhins, avgKoalas)    
 </script>
 <body>
     
