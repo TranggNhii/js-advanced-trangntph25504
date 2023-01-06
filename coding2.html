@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session2 - Coding Challenge 2</title>
+
+</head>
+<script>
+//Coding Challenge #2
+ 
+//Task1
+let mark_weight = 78;
+const mark_height = 1.69;
+let john_weight = 92;
+const john_height = 1.95;
+ 
+//Task2
+const mark_bmi = (mark_weight / mark_height ** 2);
+const john_bmi = (john_weight / john_height ** 2);
+console.log(mark_bmi, john_bmi);
+ 
+//Task3
+const mark_higher_bmi = (mark_bmi > john_bmi);
+console.log(mark_bmi > john_bmi); // Boolean is (True)
+ 
+//Task4 
+let bmi;
+if (mark_bmi >= john_bmi) {
+    bmi = (`Mark's BMI (${mark_bmi}) is higher than John's BMI (${john_bmi})`)
+}
+ 
+else {
+    bmi = (`John's BMI (${john_bmi}) is higher than Mark's BMI (${mark_bmi})`)
+}
+console.log(bmi)
+</script>
+<body>
+    
+</body>
+</html>
