@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session 3 - Coding Challenge 3</title>
+</head>
+<script>
+const mark = {
+    name: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height ** 2);
+        return this.BMI;
+    }
+};
+ 
+const john = {
+    name: 'John Smith',
+    mass: 92,
+    height: 1.95,
+ 
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height ** 2);
+        return this.BMI;
+    }
+};
+ 
+console.log(`${mark.calcBMI() > john.calcBMI() ? mark.name : john.name}'s BMI (${mark.BMI > john.BMI ? mark.BMI : john.BMI}) is higher than ${mark.BMI > john.BMI ? john.name : mark.name}'s (${mark.BMI > john.BMI ? john.BMI : mark.BMI})!`)    
+</script>
+<body>
+    
+</body>
+</html>
