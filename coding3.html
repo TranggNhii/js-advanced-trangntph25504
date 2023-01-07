@@ -4,62 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Challenge 3</title>
+    <title>Session 3 - Coding Challenge 3</title>
 </head>
 <script>
-    console.log("CODING CHALLENGE 3")
+const mark = {
+    name: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height ** 2);
+        return this.BMI;
+    }
+};
  
- const dolphinsAverage = ((96 + 108 + 89) / 3).toFixed(1);
- const koalasAverage = ((88 + 91 + 110) / 3).toFixed(1);
-  
- console.log(`Dolphins average score is ${dolphinsAverage}.`);
- console.log(`Koalas average score is ${koalasAverage}.`);
-  
- if (dolphinsAverage > koalasAverage) {
-     console.log("Dolphins beat Koalas in the final playoff!!");
-  
- } else if (koalasAverage > dolphinsAverage) {
-     console.log("Koalas beat Dolphins in the final playoff!!");
-  
- } else if (koalasAverage === dolphinsAverage) {
-     console.log("It's a tied game.  No winner declared !!");
- }
-  
- console.log("-------Bonus 1-------")
-  
- const dolphinsAverage1 = ((97 + 112 + 101) / 3).toFixed(1);
- const koalasAverage1 = ((101 + 95 + 123) / 3).toFixed(1);
-  
- console.log(`Dolphins average score is ${dolphinsAverage1}.`);
- console.log(`Koalas average score is ${koalasAverage1}.`);
-  
- if (dolphinsAverage1 > koalasAverage1 && dolphinsAverage1 >= 100 && koalasAverage1 >= 100) {
-     console.log("Dolphins beat Koalas in the final playoff!!");
-  
- } else if (koalasAverage1 > dolphinsAverage1 && koalasAverage1 >= 100 && dolphinsAverage1 >= 100) {
-     console.log("Koalas beat Dolphins in the final playoff!!");
-  
- } else if (koalasAverage1 === dolphinsAverage1 && koalasAverage1 >= 100 && dolphinsAverage1 >= 100) {
-     console.log("It's a tied game.  No winner declared !!");
- }
-  
- console.log("-------Bonus 2-------")
-  
- const dolphinsAverage2 = ((97 + 112 + 101) / 3).toFixed(1);
- const koalasAverage2 = ((109 + 95 + 106) / 3).toFixed(1);
-  
- console.log(`Dolphins average score is ${dolphinsAverage2}.`);
- console.log(`Koalas average score is ${koalasAverage2}.`);
-  
- if (dolphinsAverage2 > koalasAverage2 && dolphinsAverage2 >= 100 && koalasAverage2 >= 100) {
-     console.log("Dolphins beat Koalas in the final playoff!!");
-  
- } else if (koalasAverage2 > dolphinsAverage2 && koalasAverage2 >= 100 && dolphinsAverage2 >= 100) {
-     console.log("Koalas beat Dolphins in the final playoff!!");
-  
- } else if (koalasAverage2 === dolphinsAverage2 && koalasAverage2 >= 100 && dolphinsAverage2 >= 100) {
-     console.log("It's a tied game.  No winner declared !!");
- }
+const john = {
+    name: 'John Smith',
+    mass: 92,
+    height: 1.95,
+ 
+    calcBMI: function() {
+        this.BMI = this.mass / (this.height ** 2);
+        return this.BMI;
+    }
+};
+ 
+console.log(`${mark.calcBMI() > john.calcBMI() ? mark.name : john.name}'s BMI (${mark.BMI > john.BMI ? mark.BMI : john.BMI}) is higher than ${mark.BMI > john.BMI ? john.name : mark.name}'s (${mark.BMI > john.BMI ? john.BMI : mark.BMI})!`)    
 </script>
 <body>
     
