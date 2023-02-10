@@ -1,22 +1,41 @@
-const calcAverageHumanAge = ages =>
-  ages
-    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
-    .filter(age => age >= 18)
-    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-// adults.length
-
-const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-console.log(avg1, avg2);
-
-
-///////////////////////////////////////
-// The find Method
-const firstWithdrawal = movements.find(mov => mov < 0);
-console.log(movements);
-console.log(firstWithdrawal);
-
-console.log(accounts);
-
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
-console.log(account);
+const Car = function (make, speed) {
+    this.make = make;
+    this.speed = speed;
+  };
+  
+  Car.prototype.accelerate = function () {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+  };
+  
+  Car.prototype.brake = function () {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} km/h`);
+  };
+  
+  const EV = function (make, speed, charge) {
+    Car.call(this, make, speed);
+    this.charge = charge;
+  };
+  
+  // Link the prototypes
+  EV.prototype = Object.create(Car.prototype);
+  
+  EV.prototype.chargeBattery = function (chargeTo) {
+    this.charge = chargeTo;
+  };
+  
+  EV.prototype.accelerate = function () {
+    this.speed += 20;
+    this.charge--;
+    console.log(
+      `${this.make} is going at ${this.speed} km/h, with a charge of ${this.charge}`
+    );
+  };
+  
+  const tesla = new EV('Tesla', 120, 23);
+  tesla.chargeBattery(90);
+  console.log(tesla);
+  tesla.brake();
+  tesla.accelerate();
+  

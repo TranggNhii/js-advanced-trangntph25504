@@ -1,15 +1,33 @@
-const calcAverageHumanAge = function (ages) {
-    const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
-    const adults = humanAges.filter(age => age >= 18);
-    console.log(humanAges);
-    console.log(adults);
-    const average = adults.reduce(
-      (acc, age, i, arr) => acc + age / arr.length,
-      0
-    );
-    return average;
-  };
-  const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-  const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-  console.log(avg1, avg2);
+class CarCl {
+    constructor(make, speed) {
+      this.make = make;
+      this.speed = speed;
+    }
+  
+    accelerate() {
+      this.speed += 10;
+      console.log(`${this.make} is going at ${this.speed} km/h`);
+    }
+  
+    brake() {
+      this.speed -= 5;
+      console.log(`${this.make} is going at ${this.speed} km/h`);
+    }
+  
+    get speedUS() {
+      return this.speed / 1.6;
+    }
+  
+    set speedUS(speed) {
+      this.speed = speed * 1.6;
+    }
+  }
+  
+  const ford = new CarCl('Ford', 120);
+  console.log(ford.speedUS);
+  ford.accelerate();
+  ford.accelerate();
+  ford.brake();
+  ford.speedUS = 50;
+  console.log(ford);
   

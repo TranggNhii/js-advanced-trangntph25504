@@ -1,38 +1,66 @@
-const dogs = [
-    {
-        weight: 22,curFood:250,owners:['Alice','Bob']
-    },
-    {
-        weight: 22,curFood:250,owners:['Alice','Bob']
-    },
-    {
-        weight: 22,curFood:250,owners:['Alice','Bob']
-    },
-    {
-        weight: 22,curFood:250,owners:['Alice','Bob']
-    },
-];
-//1.
-dogs.forEach(dog =>(dog,recFood = Math.trunc(dog.weight ** 0.75 * 28)));
-//2.
-const dogSarh = dogs.find(dog =>dog.owners.includes('Sarah'));
-console.log(dogSarah);
-console.log("Sarahs dog is eating too  ${dogSarah.curFood > dogSarh.recFood ? 'much' : 'little'}");
-
-//3.
-const ownersEatTooMuch = dogs.filter(dog => dog.curFood > dog.recFood).flatMap(dog =>dog.owners);
-console.log(ownersEatTooMuch);
-const ownersEatTooLittel = dogs.filter(dog => dog.curFood < dog.recFood).flatMap(dog =>dog.owners);
-//4.
-console.log("${ownersEatTooMuch.join('and')} dogs eat too much !");
-console.log("${ownersEatTooLittel.join('and')} dogs eat too Little !");
-//5.
-console.log(dogs.some(dog =>dog.curFood === dog.recFood));
-//6.
-const checkEatingOKay = dog => dog.curFood > dog.recFood * 0.9 && curFood < dog.recFood * 11;
-console.log(dogs.some(checkEatingOKay));
-//7.
-console.log(dogs.filter(checkEatingOKay));
-//8.
-const dogsSorted = dogs.slice().sort((a,b) =>a.recFood - b.recFood);
-console.log(dogsSorted);
+// 1) Public fields
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
+// (there is also the static version)
+class Account {
+ // 1) Public fields (instances)
+ locale = navigator.language;
+ // 2) Private fields (instances)
+ #movements = [];
+ #pin;
+ constructor(owner, currency, pin) {
+ this.owner = owner;
+ this.currency = currency;
+ this.#pin = pin;
+ // Protected property
+ // this._movements = [];
+ // this.locale = navigator.language;
+ console.log(`Thanks for opening an account, ${owner}`);
+ }
+ // 3) Public methods
+ // Public interface
+ getMovements() {
+ return this.#movements;
+ }
+ deposit(val) {
+ this.#movements.push(val);
+ return this;
+ }
+ withdraw(val) {
+ this.deposit(-val);
+ return this;
+ }
+ requestLoan(val) {
+ // if (this.#approveLoan(val)) {
+ if (this._approveLoan(val)) {
+    this.deposit(val);
+ console.log(`Loan approved`);
+ return this;
+ }
+ }
+ static helper() {
+ console.log('Helper');
+ }
+ // 4) Private methods
+ // #approveLoan(val) {
+ _approveLoan(val) {
+ return true;
+ }
+}
+const acc1 = new Account('Jonas', 'EUR', 1111);
+// acc1._movements.push(250);
+// acc1._movements.push(-140);
+// acc1.approveLoan(1000);
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+console.log(acc1.getMovements());
+console.log(acc1);
+Account.helper();
+// console.log(acc1.#movements);
+// console.log(acc1.#pin);
+// console.log(acc1.#approveLoan(100));
+// Chaining
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
